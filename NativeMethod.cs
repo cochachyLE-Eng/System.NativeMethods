@@ -1,4 +1,6 @@
-﻿namespace System.NativeMethods
+﻿using System.NativeMethods.Base;
+
+namespace System.NativeMethods
 {
     public static class NativeMethod
     {
