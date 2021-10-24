@@ -90,20 +90,7 @@ namespace Vaetech.NativeMethods.Mouse
             IntPtr wParam, IntPtr lParam);
 
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        private static extern IntPtr GetModuleHandle(string lpModuleName);
-
-        /// <summary>
-        /// <para>Get the position of Cursor/Mouse.</para>
-        /// <example>        
-        /// <b>Method 1:</b><br/>
-        /// Point defPnt = new Point();<br/>
-        /// GetCursorPos(ref defPnt);        
-        /// </example>
-        /// </summary>
-        /// <param name="lpPoint"></param>
-        /// <returns></returns>
-        [DllImport("user32.dll")]
-        public static extern bool GetCursorPos(ref Point lpPoint);
+        private static extern IntPtr GetModuleHandle(string lpModuleName);        
         #endregion
 
         #region Methods

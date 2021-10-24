@@ -8,11 +8,11 @@
     <Description>Library for using winuser.h functions in c #</Description>
     <PackageIcon>package.png</PackageIcon>
     <PackageIconUrl />
-    <Version>1.1.4</Version>
+    <Version>1.1.5</Version>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/cochachyLE-Eng/Vaetech.NativeMethods</PackageProjectUrl>
     <RepositoryUrl>https://github.com/cochachyLE-Eng/Vaetech.NativeMethods</RepositoryUrl>
-    <PackageTags>Clipboard, Drawing, GetCopyText, GetSeletedText</PackageTags>
+    <PackageTags>Clipboard, Drawing, GetCopyText, GetSeletedText, Cursor, Active Windows</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
