@@ -1,77 +1,75 @@
-﻿namespace System.NativeMethods.Base
+﻿using System;
+
+namespace Vaetech.NativeMethods.Base
 {       
     public class ActiveProcess:IActiveProcess
     {
         /// <summary>        
-        /// <b>Resumen:</b>
-        ///     Obtiene el identificador de la sesión de Terminal Services para el proceso asociado.<br/>
-        /// <b>Devuelve:</b>
-        ///     Identificador de la sesión de Terminal Services para el proceso asociado.                      
+        /// <b>Summary:</b>
+        ///     Gets the ID of the Terminal Services session for the associated process.<br/>
+        /// <b>Returns:</b>
+        ///     Terminal Services session identifier for the associated process.                      
         /// </summary>
         public int SessionId { get; private set; }
         /// <summary>        
-        /// <b>Resumen:</b>
-        ///     Obtiene un valor que indica si la interfaz de usuario del proceso está respondiendo.<br/>
-        /// <b>Devuelve:</b>
-        ///     Es true si la interfaz de usuario del proceso asociado está respondiendo al sistema;
-        ///     de lo contrario, es false.                       
+        /// <b>Summary:</b>
+        ///     Gets a value that indicates whether the process UI is responding.<br/>
+        /// <b>Returns:</b>
+        ///     True if the associated process UI is responding to the system; otherwise, it is false.                       
         /// </summary>
         public bool Responding { get; private set; }
         /// <summary>        
-        /// <b>Resumen:</b>
-        ///     Obtiene el nombre del proceso.<br/>
-        /// <b>Devuelve:</b>
-        ///     Nombre que el sistema usa para identificar el proceso ante el usuario.                        
+        /// <b>Summary:</b>
+        ///     Gets the name of the process.<br/>
+        /// <b>Returns:</b>
+        ///     Name that the system uses to identify the process to the user.                        
         /// </summary>
         public string ProcessName { get; private set; }
         /// <summary>        
-        /// <b>Resumen:</b>
-        ///     Obtiene el título de la ventana principal del proceso.<br/>
-        /// <b>Devuelve:</b>
-        ///     Título de la ventana principal del proceso.        
+        /// <b>Summary:</b>
+        ///     Gets the title of the main process window.<br/>
+        /// <b>Returns:</b>
+        ///     Title of the main window of the process.        
         /// </summary>
         public string MainWindowTitle { get; private set; }
         /// <summary>        
-        /// <b>Resumen:</b>
-        ///     Obtiene el nombre del equipo en el que se está ejecutando el proceso asociado.<br/>
-        /// <b>Devuelve:</b>
-        ///     Nombre del equipo en el que se está ejecutando el proceso asociado.                        
+        /// <b>Summary:</b>
+        ///     Gets the name of the computer on which the associated process is running.<br/>
+        /// <b>Returns:</b>
+        ///     Name of the computer on which the associated process is running.                        
         /// </summary>
         public string MachineName { get; private set; }
         /// <summary>        
-        /// <b>Resumen:</b>
-        ///     Obtiene el identificador único del proceso asociado.<br/>
-        /// <b>Devuelve:</b>
-        ///     Identificador único generado por el sistema del proceso al que hace referencia
-        ///     esta instancia de System.Diagnostics.Process.               
+        /// <b>Summary:</b>
+        ///     Gets the unique identifier of the associated process.<br/>
+        /// <b>Returns:</b>
+        ///     System-generated unique identifier of the process referenced by this instance of System.Diagnostics.Process.
         /// </summary>
         public int Id { get; private set; }
         /// <summary>        
-        /// <b>Resumen:</b>
-        ///     Obtiene el identificador nativo del proceso asociado.<br/>
-        /// <b>Devuelve:</b>
-        ///    Identificador que el sistema operativo asignó al proceso asociado cuando este
-        ///    se inició. El sistema usa este identificador para hacer un seguimiento de los
-        ///    atributos del proceso.            
+        /// <b>Summary:</b>
+        ///     Gets the native identifier of the associated process.<br/>
+        /// <b>Returns:</b>
+        ///    The identifier that the operating system assigned to the associated process when it started. 
+        ///    The system uses this identifier to keep track of the attributes of the process.         
         /// </summary>
         public IntPtr Handle { get; private set; }
         /// <summary>        
-        /// <b>Resumen:</b>
-        ///    Obtiene el identificador de ventana de la ventana principal del proceso asociado.<br/>
-        /// <b>Devuelve:</b>
-        ///    Identificador de ventana generado por el sistema para la ventana principal del
-        ///    proceso asociado.                
+        /// <b>Summary:</b>
+        ///    Gets the window handle of the main window of the associated process.<br/>
+        /// <b>Returns:</b>
+        ///    System generated window identifier for the main window of the associated process.                
         /// </summary>
         public IntPtr MainWindowHandle { get; private set; }
         /// <summary>        
-        /// <b>Resumen:</b>
-        ///    Obtiene el tamaño de memoria física, expresado en bytes, que se asignó para el
-        ///    proceso asociado.<br/>
-        /// <b>Devuelve:</b>
-        ///    Tamaño de memoria física, expresado en bytes, que se asignó para el proceso asociado.                
+        /// <b>Summary:</b>
+        ///    Gets the size of physical memory, expressed in bytes, that was allocated for the associated process.<br/>
+        /// <b>Returns:</b>
+        ///    Physical memory size, expressed in bytes, that was allocated for the associated process.                
         /// </summary>
         public long WorkingSet64 { get; private set; }
 
+        public void SetActiveProcess(int pid) => SetActiveProcess(System.Diagnostics.Process.GetProcessById(pid));
         public void SetActiveProcess(System.Diagnostics.Process process)
         {
             SessionId = process.SessionId;

@@ -1,6 +1,6 @@
-﻿using System.NativeMethods.Base;
+﻿using Vaetech.NativeMethods.Base;
 
-namespace System.NativeMethods
+namespace Vaetech.NativeMethods
 {
     public static class NativeMethod
     {

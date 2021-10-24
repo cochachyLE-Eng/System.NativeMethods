@@ -1,14 +1,15 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace System.NativeMethods.Drawing
+namespace Vaetech.NativeMethods.Drawing
 {
-    public class DiffBitmap
+    public class Bitmap
     {
-        [Runtime.InteropServices.DllImport("msvcrt.dll")]
+        [System.Runtime.InteropServices.DllImport("msvcrt.dll")]
         private static extern int memcmp(IntPtr b1, IntPtr b2, long count);
 
-        public static bool CompareBitmap(Bitmap b1, Bitmap b2)
+        public static bool CompareBitmap(System.Drawing.Bitmap b1, System.Drawing.Bitmap b2)
         {
             if ((b1 == null) != (b2 == null)) return false;
             if (b1.Size != b2.Size) return false;

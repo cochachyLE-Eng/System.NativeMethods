@@ -1,7 +1,8 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 using System.Text;
 
-namespace System.NativeMethods.Clipboard
+namespace Vaetech.NativeMethods.Clipboard
 {
     /// <summary>
     /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/
